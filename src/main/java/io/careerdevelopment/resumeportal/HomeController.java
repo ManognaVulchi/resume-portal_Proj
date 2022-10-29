@@ -1,9 +1,11 @@
 package io.careerdevelopment.resumeportal;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 
-@RestController
+@Controller
 public class HomeController {
     @GetMapping("/")
     public String home()
@@ -15,5 +17,11 @@ public class HomeController {
     public String edit()
     {
         return "Edit page";
+    }
+    @GetMapping("/view/{userId}")
+    public String view(@PathVariable String userId, Model model)
+    {
+        model.addAttribute("userId", userId);
+        return "profile";
     }
 }
