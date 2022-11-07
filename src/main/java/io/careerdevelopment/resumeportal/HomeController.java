@@ -22,6 +22,6 @@ public class HomeController {
     public String view(@PathVariable String userId, Model model)
     {
         model.addAttribute("userId", userId);
-        return "profile";
+        return "profile-templates/3/index";
     }
 }
