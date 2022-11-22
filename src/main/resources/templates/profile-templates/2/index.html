@@ -40,11 +40,13 @@
         
             <!-- Microformats! -->
         
-            <h1 class="fn">C'thulhu</h1>
+            <h1 class="fn"><span th:text="${userProfile.firstName}"> Jonathan </span>
+                <span th:text="${userProfile.lastName}"> Doe</span></h1>
         
             <p>
-                Cell: <span class="tel">555-666-7777</span><br />
-                Email: <a class="email" href="mailto:greatoldone@lovecraft.com">greatoldone@lovecraft.com</a>
+                <span th:text="${userProfile.designation}">Web Designer, Director</span>
+                Cell: <span th:text="${userProfile.phone}">1234567</spanth:text></span><br />
+                Email: <a class="email" th:text="${userProfile.email}">email.com</a>
             </p>
         </div>
                 
