@@ -38,7 +38,8 @@ public class HomeController {
        job1.setStartDate(LocalDate.of(2020,1,1));
        job1.getResponsibilities().add("come up the theory of relativity");
        job1.getResponsibilities().add("come up the advance quantum mechanics");
-       job1.getResponsibilities().add("blow people's mind");job1.setEndDate(LocalDate.of(2020,3,1));
+       job1.getResponsibilities().add("blow people's mind");
+       job1.setEndDate(LocalDate.of(2020,3,1));
 
         job1.setCurrentJob(true);
         Job job2 = new Job();
