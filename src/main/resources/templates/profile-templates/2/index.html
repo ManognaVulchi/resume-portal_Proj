@@ -33,9 +33,7 @@
 <body>
 
     <div id="page-wrap">
-    
-        <img src="../profile-templates/2/images/cthulu.png" alt="Photo of Cthulu" id="pic" />
-    
+
         <div id="contact-info" class="vcard">
         
             <!-- Microformats! -->
@@ -64,27 +62,24 @@
         <dl>
             <dd class="clear"></dd>
             
-            <dt>Education</dt>
-            <dd>
-                <h2>Withering Madness University - Planet Vhoorl</h2>
-                <p><strong>Major:</strong> Public Relations<br />
-                   <strong>Minor:</strong> Scale Tending</p>
-            </dd>
-            
+            <dt style="height:180px !important">Education</dt>
+           <div th:each="education:${userProfile.educations}">
+                <h2 th:text="${education.college}" >College/university</h2>
+               <p th:text="${education.qualification}">qualification</p>
+               <p th:text="${education.summary}">summary</p>
+            </div>
+
             <dd class="clear"></dd>
             
             <dt>Skills</dt>
-            <dd>
-                <h2>Office skills</h2>
-                <p>Office and records management, database administration, event organization, customer support, travel coordination</p>
-                
-                <h2>Computer skills</h2>
-                <p>Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows</p>
+            <dd th:each="skill:${userProfile.skills}">
+                <p th:text="${skill}">Office skills</p>
+
             </dd>
             
             <dd class="clear"></dd>
             
-            <dt>Experience</dt>
+            <dt style="height:300px !important">Experience</dt>
             <div th:each="job:${userProfile.jobs}">
 
                  <span class="clear" style="padding-right:10px" th:text="${job.designation}">Job Title</span> at
@@ -92,20 +87,14 @@
                     <span class="clear" style="padding-left:10px" th:text="${job.company}">Company</span>
                     <span style="padding-left:10px" th:text="${job.formattedStartDate}">April 2011</span>-
 
-                    <span style="padding-left:10px" th:text="${job.isCurrentJob}?'Present':${job.formattedEndDate}">Present</span>
-
+                    <span  style="padding-left:10px" th:text="${job.isCurrentJob}?'Present':${job.formattedEndDate}">Present</span>
+                <span style="padding-left:10px">
+                   <ul  th:each="responsibility:${job.responsibilities}">
+                     <li th:text="${responsibility}">Responsibility</li>
+                  </ul>
+                </span>
 
             </div>
-            
-            <dd class="clear"></dd>
-            
-            <dt>Hobbies</dt>
-            <dd>World Domination, Deep Sea Diving, Murder Most Foul</dd>
-            
-            <dd class="clear"></dd>
-            
-            <dt>References</dt>
-            <dd>Available on request</dd>
             
             <dd class="clear"></dd>
         </dl>
