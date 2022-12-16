@@ -2,6 +2,10 @@ package io.careerdevelopment.resumeportal.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -13,9 +17,25 @@ public class Job {
     private String designation;
     private LocalDate startDate;
     private LocalDate endDate;
+    private boolean isCurrentJob;
 
+    public List<String> getResponsibilities() {
+        return responsibilities;
+    }
 
+    public void setResponsibilities(List<String> responsibilities) {
+        this.responsibilities = responsibilities;
+    }
+    @ElementCollection(targetClass = String.class)
+    private List<String> responsibilities = new ArrayList<>();
 
+    public boolean isCurrentJob() {
+        return isCurrentJob;
+    }
+
+    public void setCurrentJob(boolean currentJob) {
+        isCurrentJob = currentJob;
+    }
 
     @Override
 
@@ -66,5 +86,13 @@ public class Job {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+   public String getFormattedStartDate()
+   {
+    return startDate.format(DateTimeFormatter.ofPattern("MMM yyyy"));
+   }
+    public String getFormattedEndDate()
+    {
+        return endDate.format(DateTimeFormatter.ofPattern("MMM yyyy"));
     }
 }

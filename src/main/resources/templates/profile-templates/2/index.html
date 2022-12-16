@@ -85,21 +85,17 @@
             <dd class="clear"></dd>
             
             <dt>Experience</dt>
-            <dd>
-                <h2>Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
-                <ul>
-                    <li>Inspired and won highest peasant death competition among servants</li>
-                    <li>Helped coordinate managers to grow cult following</li>
-                    <li>Provided untimely deaths to all who opposed</li>
-                </ul>
-                
-                <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
-                <ul>
-                    <li>Worked on grass-roots promotional campaigns</li>
-                    <li>Reduced theft and property damage percentages</li>
-                    <li>Janitorial work, Laundry</li>
-                </ul> 
-            </dd>
+            <div th:each="job:${userProfile.jobs}">
+
+                 <span class="clear" style="padding-right:10px" th:text="${job.designation}">Job Title</span> at
+
+                    <span class="clear" style="padding-left:10px" th:text="${job.company}">Company</span>
+                    <span style="padding-left:10px" th:text="${job.formattedStartDate}">April 2011</span>-
+
+                    <span style="padding-left:10px" th:text="${job.isCurrentJob}?'Present':${job.formattedEndDate}">Present</span>
+
+
+            </div>
             
             <dd class="clear"></dd>
             
