@@ -22,6 +22,7 @@
 				<div class="yui-u first">
 					<h1><span th:text="${userProfile.firstName}"> Jonathan </span>
 						<span th:text="${userProfile.lastName}"> Doe</span>
+						<a th:if= "${currentUsersProfile}" hreaf="/edit">Edit</a>
 					</h1>
 					<h2><span th:text="${userProfile.designation}">Web Designer, Director</span></h2>
 				</div>
@@ -29,7 +30,7 @@
 				<div class="yui-u">
 					<div class="contact-info">
 						<h3><span th:text="${userProfile.email}">email.com</span></h3>
-						<h3><span th:text="${userProfile.phone}">1234567</spanth:text></span></h3>
+						<h3><span th:text="${userProfile.phone}">1234567</span></h3>
 						<h3>(313) - 867-5309</h3>
 					</div><!--// .contact-info -->
 				</div>
