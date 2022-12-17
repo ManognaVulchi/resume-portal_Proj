@@ -11,13 +11,20 @@
 <div class = "container">
 <form action="#" th:action="@{/edit}" th:object="${userProfile}" method = "post">
     <div class="mb-3">
+        <label class="form-label">Select your profile theme</label>
+        <select th:field="*{theme}">
+            <option th:each="i : ${#numbers.sequence(2, 3)}" th:value="${i}" th:text="${'Theme' + i}"></option>
+        </select>
+
+    </div>
+    <div class="mb-3">
         <label class="form-label">First Name</label>
         <input class="form-control" th:field="*{firstName}">
 
     </div>
     <div class="mb-3">
         <label  class="form-label">Last Name</label>
-        <input class="form-control" th:field="*{firstName}">
+        <input class="form-control" th:field="*{lastName}">
 
     </div>
     <div class="mb-3">
@@ -34,6 +41,10 @@
         <label class="form-label">Designation</label>
         <input class="form-control" th:field="*{designation}">
 
+    </div>
+    <div>
+    <label class="form-label">Summary</label>
+    <textarea class="form-control" th:field="*{summary}"></textarea>
     </div>
     <h3>Experience</h3>
     <table>

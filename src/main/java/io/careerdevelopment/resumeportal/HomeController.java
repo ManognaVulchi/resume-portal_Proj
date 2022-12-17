@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -98,11 +99,18 @@ public class HomeController {
         return "profile-edit";
     }
     @PostMapping("/edit")
-    public String postEdit(Model model, Principal principal)
+    public String postEdit(Model model, Principal principal, @ModelAttribute UserProfile userProfile)
     {
-        String userId = principal.getName();
+        String userName = principal.getName();
+        Optional<UserProfile> userProfileOptional = userProfileRepository.findByUserName(userName);
+        userProfileOptional.orElseThrow(() -> new RuntimeException("Not found: " + userName));
+        UserProfile savedUserProfile = userProfileOptional.get();
+        userProfile.setId(savedUserProfile.getId());
+        userProfile.setUserName(userName);
+      //  userProfile.setTheme(savedUserProfile.getTheme());
+        userProfileRepository.save(userProfile);
        //save the updated values in the form
-        return "redirect:/view/" + userId;
+        return "redirect:/view/" + userName;
     }
     @GetMapping("/view/{userId}")
     public String view(@PathVariable String userId, Model model)
