@@ -40,7 +40,12 @@ public class HomeController {
        job1.getResponsibilities().add("come up the theory of relativity");
        job1.getResponsibilities().add("come up the advance quantum mechanics");
        job1.getResponsibilities().add("blow people's mind");
-       job1.setEndDate(LocalDate.of(2020,3,1));
+    //
+        //
+        //
+        //
+        //
+        //   job1.setEndDate(LocalDate.of(2020,3,1));
 
         job1.setCurrentJob(true);
         Job job2 = new Job();
@@ -94,6 +99,7 @@ public class HomeController {
         Optional<UserProfile> userProfileOptional = userProfileRepository.findByUserName(userId);
         userProfileOptional.orElseThrow(() -> new RuntimeException("Not found: " + userId));
         UserProfile userProfile = userProfileOptional.get();
+        userProfile.getJobs().add(new Job());
         model.addAttribute("userProfile", userProfile);
 
         return "profile-edit";
