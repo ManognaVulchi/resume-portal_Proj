@@ -66,7 +66,7 @@
             <td><input class="form-check-input" type="checkbox"  th:field="*{jobs[__${stat.index}__].currentJob}"></td>
         </tr>
     </table>
-
+    <p><a href="./edit?add=job">Add Job</a></p>
     <h3>Education</h3>
     <table>
         <thead>
@@ -87,7 +87,7 @@
             <td><input class="form-control"  th:field="*{educations[__${stat.index}__].summary}"></td>
         </tr>
     </table>
-
+    <p> <a href="./edit?add=education">Add Education</a></p>
     <h3>Skills</h3>
     <table>
 
@@ -96,7 +96,7 @@
 
         </tr>
     </table>
-
+    <p><a href="./edit?add=skill">Add Skill</a></p>
     <input type="submit" value="Submit">
 
 </form>
