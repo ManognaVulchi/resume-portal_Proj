@@ -1,6 +1,7 @@
 insert into users (id, user_name, password, active, roles) values
 (1,'einstein','einstein', 'true', 'USER'),
-(2,'newton','newton', 'true', 'USER');
+(2,'newton','newton', 'true', 'USER'),
+(3,'manogna','manogna', 'true', 'USER');
 
 insert into user_profile (id, user_name, theme, summary,first_name,last_name,email,phone,designation) values
 (1,'einstein','2', 'Profile description','Albert','Einstein','einstein@gmail.com','111-111-111','physicist'),
